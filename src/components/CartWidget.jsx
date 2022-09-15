@@ -7,6 +7,7 @@ function CartWidget(props) {
         <FontAwesomeIcon icon={faCartShopping} />
         <span>0</span>
     </div>
+    
   )
 }
 

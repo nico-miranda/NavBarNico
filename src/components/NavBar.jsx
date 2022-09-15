@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/navBar.css";
 import CartWidget from "./CartWidget";
+import "../styles/carro.css";
 
 function Navbar(props) {
 	const navRef = useRef();
@@ -17,7 +18,9 @@ function Navbar(props) {
 				<a href="/#">Inicio</a>
 				<a href="/#">Productos</a>
 				<a href="/#">Presupuestos</a>
+				<div className="carrito">
 				<CartWidget carrito={props.carrito}/>
+				</div>
 				<button
 					className="nav-btn nav-close-btn"
 					onClick={showNavbar}>

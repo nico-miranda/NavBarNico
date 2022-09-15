@@ -15,9 +15,7 @@ function Card(props) {
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
                 <h4>${props.price} </h4>
-                <div>
                 <Button text="Agregar al carrito"/>
-                </div>
             </div>
             </div>
         </div>
