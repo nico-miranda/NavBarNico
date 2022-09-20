@@ -1,10 +1,12 @@
 import React from 'react';
 import Button from "../button/Button";
 import "../styles/card.css";
+import ItemCount from './ItemCount';
 
 
 function Card(props) {
-    console.log(props);
+   
+
     return (
         <div>
             <div className="card">
@@ -15,7 +17,8 @@ function Card(props) {
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
                 <h4>${props.price} </h4>
-                <Button text="Agregar al carrito"/>
+                <Button  text="Agregar al carrito"/>
+                <ItemCount initial={1} stock={6} onAdd={props.onAdd}/>
             </div>
             </div>
         </div>
