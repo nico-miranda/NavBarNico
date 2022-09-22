@@ -4,8 +4,8 @@ import "./button.css";
 
 function Button(props) {
   
-  const onAdd = (quantity) => {
-    console.log(`Compraste ${quantity} unidades`);
+  const onAdd = (cantidad) => {
+    console.log(`Compraste ${cantidad} unidades`);
 }
   
   return (

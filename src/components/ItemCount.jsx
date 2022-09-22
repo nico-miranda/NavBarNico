@@ -7,6 +7,7 @@ function ItemCount(props) {
 console.log("stock:", props.stock)
 
 
+
     function sumarClick (){
         setCount(count+1);
     }
@@ -20,7 +21,7 @@ console.log("stock:", props.stock)
         <div>
             <button disabled={count<=(props.initial)} onClick={restarClick}>-</button>
             <span>{count}</span>
-            <button disabled={count>=(props.stock)} onClick={sumarClick}>+</button>
+            <button disabled={count>=(props.stock)}   onClick={sumarClick}>+</button>
         </div>
     )
 }
