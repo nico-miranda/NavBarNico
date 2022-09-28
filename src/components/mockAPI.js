@@ -34,6 +34,14 @@ export default function getItems(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(data);
-        }, 2000);
+        }, 1000);
+    });
+};
+
+export function getItemDetail(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(data[0]);
+        }, 1000);
     });
 };

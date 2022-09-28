@@ -1,9 +1,8 @@
 import React from 'react';
-import Button from "../button/Button";
 import "../styles/card.css";
+import ButtonDetail from '../button/ButtonDetail';
+import Button from '../button/Button';
 import ItemCount from './ItemCount';
-
-
 function Card(props) {
     
 
@@ -18,8 +17,10 @@ function Card(props) {
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
                 <h4>${props.price} </h4>
-                <Button  text="Agregar al carrito"/>
-                <ItemCount initial={1} stock={6} onAdd={props.onAdd}/>
+                <ButtonDetail  text="Ver Producto"/>
+                <Button text="Agregar al Carrito" />
+                <ItemCount initial={1} stock={6}/>
+                
             </div>
             </div>
         </div>
