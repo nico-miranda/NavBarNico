@@ -3,7 +3,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import "../styles/navBar.css";
 import CartWidget from "./CartWidget";
 import "../styles/carro.css";
-
+import { Link } from "react-router-dom";
 function Navbar(props) {
 	const navRef = useRef();
 
@@ -15,9 +15,9 @@ function Navbar(props) {
 		<header>
 			<h3>Ferreteria Miranda</h3>
 			<nav ref={navRef}>
-				<a href="/#">Inicio</a>
-				<a href="/#">Productos</a>
-				<a href="/#">Presupuestos</a>
+				<Link to="/home">Inicio</Link>
+				<Link to="/detalles">Productos</Link>
+				<Link to="*">Presupuestos</Link>
 				<div className="carrito">
 				<CartWidget carrito={props.carrito}/>
 				</div>
