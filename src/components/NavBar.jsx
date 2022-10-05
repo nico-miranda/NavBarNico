@@ -16,8 +16,8 @@ function Navbar(props) {
 			<h3>Ferreteria Miranda</h3>
 			<nav ref={navRef}>
 				<Link to="/home">Inicio</Link>
-				<Link to="/detalles">Productos</Link>
-				<Link to="*">Presupuestos</Link>
+				<Link to="/detalle/:id">Productos</Link>
+				<Link to="/#">Presupuestos</Link>
 				<div className="carrito">
 				<CartWidget carrito={props.carrito}/>
 				</div>

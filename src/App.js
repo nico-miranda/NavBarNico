@@ -14,9 +14,8 @@ function App(props) {
     <Route path="/home" element={<ItemListContainer greeting="Ofertas Imperdibles!"/>}/>
     <Route path="/category/:cat" element={<ItemListContainer/>}/>
     <Route path="/detalle/:id" element={ <ItemDetailContainer/>}/>
-
-<Route path="*" element={<h1>404: Te perdiste</h1>}/>
-
+    <Route path="/#" element={<h1>404: Te perdiste</h1>}/>
+    <Route path="*" element={<ItemListContainer greeting="Ofertas Imperdibles!"/>}/>
   </Routes>
   <Footer/>
   </BrowserRouter>  

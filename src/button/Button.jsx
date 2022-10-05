@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import "./button.css";
 
 
@@ -13,4 +13,4 @@ function Button(props) {
   )
 }
 
-export default Button;
+export default Button;*/

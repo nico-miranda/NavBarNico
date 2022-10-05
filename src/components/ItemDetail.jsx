@@ -4,27 +4,31 @@ import "../styles/itemCount.css"
 import ItemCount from './ItemCount';
 
 
-function ItemDetail(props) {
-  
+function sumarClick(count){
+        alert(`se agrego ${count} al carrito!`)
+}
 
+function ItemDetail({data}) {
 
-
+let estadoCart = false;   
 
     return (
     <div className="centrado">
         
         <div className="detailCard">
-    <img className="detailImg" src={props.data.img} alt="card img"></img>
-   <h1>{props.data.title}</h1>
-    <h3>${props.data.price}</h3>
-    <p>{props.data.description}</p>
-    <button className="btn">Agregar al carrito</button>
-    <ItemCount className="sumarRestar" initial={1} stock={6} onAdd/>
+    <img className="detailImg" src={data.img} alt="card img"></img>
+    <h1>{data.title}</h1>
+    <h3>${data.price}</h3>
+    <p>{data.description}</p>
     
-
-        </div>
+    {estadoCart === false ? (
+        <ItemCount stock={6} onAddToCart={sumarClick} />
+      ) : (
+        <button>Finalizar Compra</button>
+      )}
+       </div> 
     </div>
-  )
+  );
 }
 
-export default ItemDetail
+export default ItemDetail;
