@@ -1,14 +1,20 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping }  from "@fortawesome/free-solid-svg-icons";
-function CartWidget(props) {
+import { useCartContext } from "../context/CartContext";
+
+function CartWidget() {
+  
+const{ totalProducts } = useCartContext();
+
   return (
-    <div carrito={props.carrito}>
+    <div>
         <FontAwesomeIcon icon={faCartShopping} />
-        <span>0</span>
+        <span>{totalProducts() || ''}</span>
     </div>
     
   )
 }
 
-export default CartWidget;
+export default CartWidget; 
+

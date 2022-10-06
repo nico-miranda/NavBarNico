@@ -6,7 +6,7 @@ const data= [
         description: "Combo Grif. Monocomando Fv Arizona Lavatorio Bidé Ducha B1",
         img: "/assets/images/grifo1.jpg",
         stock: 6,
-        category: "Sanitario",
+        category: "sanitario",
     },
 
     {
@@ -16,7 +16,7 @@ const data= [
         description: "Grifo de cocina monocomando FV B1 Arizona 0423/B1 cromo",
         img: "/assets/images/grifo2.jpg",
         stock: 6,
-        category: "Sanitario",
+        category: "sanitario",
     },
 
     {
@@ -26,7 +26,37 @@ const data= [
         description: "Grifería de bañera y ducha FV Arizona 0106/B1 color cromo",
         img: "/assets/images/grifo3.jpg",
         stock: 6,
-        category: "Sanitario",
+        category: "sanitario",
+    },
+
+    {
+        id: 4,
+        title: "Martillo legendario",
+        price: 10.532,
+        description: "Martillo con el que se construyo pinocho",
+        img: "/assets/images/martillox.jpg",
+        stock: 6,
+        category: "carpinteria",
+    },
+    
+    {
+        id: 5,
+        title: "Masa de thor",
+        price: 30.231,
+        description: "Masa 20Kg forjada en diamantes de minecraft",
+        img: "/assets/images/masa.jpg",
+        stock: 6,
+        category: "construccion",
+    },
+
+    {
+        id: 6,
+        title: "Cerrucho nordico",
+        price: 25.113,
+        description: "Cerrucho 40 dientes, acero forjado en skyrim",
+        img: "/assets/images/cerrucho.jpg",
+        stock: 6,
+        category: "carpinteria",
     },
 ];
 
@@ -46,20 +76,21 @@ export function getItemsByCategory(cat){
         { return item.category === cat;
         });
         setTimeout(() => {
-            console.log("Encontramos:", itemFind)
-            resolve(data);
+            if (itemFind) resolve(itemFind);
+            else reject(new Error("categoria no encontrada"));   
         }, 1000);
     });
 };
 
-export function getItemDetail(idItem){
+export function getItemDetail(idItem) {
     return new Promise((resolve, reject) => {
-            let itemFind = data.find((item)=>
-            { return item.id === parseInt(idItem)
-            });
-            setTimeout(() => {
-       if (itemFind) resolve(itemFind);
-       else reject(new Error("item no encontrado"));  
-    }, 1000)
+  
+      let itemFind = data.find((item) => {
+        return item.id === parseInt(idItem);
+      });
+      setTimeout( () => {
+        if (itemFind) resolve(itemFind);
+        else reject(new Error("item no encontrado"));
+      }, 1500)
 });
 }

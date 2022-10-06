@@ -2,30 +2,26 @@ import React from 'react'
 import "../styles/itemDetail.css";
 import "../styles/itemCount.css"
 import ItemCount from './ItemCount';
+import { useState } from 'react';
+import {Link} from "react-router-dom";
 
+function ItemDetail(props) {
 
-function sumarClick(count){
-        alert(`se agrego ${count} al carrito!`)
+  const [irAlCarro, setIrAlCarro] = useState(false);
+  
+
+  function sumarClick(count){
+    setIrAlCarro(true);
 }
-
-function ItemDetail({data}) {
-
-let estadoCart = false;   
-
     return (
     <div className="centrado">
         
         <div className="detailCard">
-    <img className="detailImg" src={data.img} alt="card img"></img>
-    <h1>{data.title}</h1>
-    <h3>${data.price}</h3>
-    <p>{data.description}</p>
-    
-    {estadoCart === false ? (
-        <ItemCount stock={6} onAddToCart={sumarClick} />
-      ) : (
-        <button>Finalizar Compra</button>
-      )}
+    <img className="detailImg" src={props.data.img} alt="card img"></img>
+    <h1>{props.data.title}</h1>
+    <h3>${props.data.price}</h3>
+    <p>{props.data.description}</p>
+    {irAlCarro === false ? (<ItemCount stock={6} onAddToCart={sumarClick} />) : (<Link><button className="btn">Finalizar Compra</button></Link> )}
        </div> 
     </div>
   );

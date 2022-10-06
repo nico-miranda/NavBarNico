@@ -5,7 +5,7 @@ function ItemList(props) {
   return (
     <div className='card-container'>
     {props.data.map( (item) => {
-      console.log(item);
+      
         return ( 
         <Card 
         key={item.id}
