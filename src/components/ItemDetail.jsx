@@ -11,6 +11,7 @@ function ItemDetail({ item }) {
   
   const { addItem } = useContext(cartCtx);
 
+
   function sumarClick(count){
     setIrAlCarro(true);
     addItem(item, count);
@@ -23,8 +24,8 @@ function ItemDetail({ item }) {
     <h1>{item.title}</h1>
     <h3>${item.price}</h3>
     <p>{item.description}</p>
-    {irAlCarro === false ? (<ItemCount stock={6} onAddToCart={sumarClick} />) : (<Link><button className="btn">Finalizar Compra</button></Link> )}
-       </div> 
+    {irAlCarro === false ? (<ItemCount stock={6} onAddToCart={sumarClick}/>) : (<Link><button className="btn">Finalizar Compra</button></Link> )}
+        </div> 
     </div>
   );
 }

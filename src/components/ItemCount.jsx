@@ -5,19 +5,16 @@ import { useState } from 'react';
 function ItemCount({stock, onAddToCart}) {
     
     const [count, setCount] = useState(1);
-   
+    
     function sumarClick (){
-   
-   if (count < stock) setCount(count+1);
+        if (count < stock) setCount(count+1);
     }
 
     function restarClick (){
-       if (count > 1) setCount(count-1);
+        if (count > 1) setCount(count-1);
     }
-     
-  
-      
-      return (
+    
+    return (
         <div>
             <div>
                 <button  onClick={() => onAddToCart(count)} className="btn">Agregar al carrito!</button> 

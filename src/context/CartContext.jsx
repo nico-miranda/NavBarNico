@@ -6,37 +6,49 @@ export default function CartContextProvider({ children }){
 const [cart, setCart] = useState([]);
 
 function addItem(item, count){
-    if (isInCart(item.id)) {
-      let newCart = cart.map( (itemMapeo) => {
-        if(itemMapeo.id === item.id){
-           itemMapeo.count += count
-            return itemMapeo;
-        }
-        else
-        return itemMapeo
-      })
-      setCart(newCart)
-    }
-    else { 
-    let newCart = cart.map( (item) => item);
-    newCart.push({...item, count: count});
-    setCart(newCart);
+const newItem ={
+    ...item,
+    count
+}
+
+    if (isInCart(newItem.id)) {
+        const findProduct = cart.find(item => item.id === newItem.id)
+        const productIndex = cart.indexOf(findProduct)
+        const auxArray = [...cart]
+        auxArray[productIndex].count += count
+        setCart(auxArray)
+    } else {
+        setCart([...cart, newItem])
     }
 }
 
 function getTotalItemsInCart(){
-    let total = "";
-    cart.forEach( item=> 0)
-    return total;
+    return cart.reduce((acc, item) => acc += item.count, 0)
 }
 
 function isInCart(id){
 let found = cart.some( item => item.id === id)
-return found;
+    return found;
+}
+
+function emptyCart(){
+    return setCart([])
+}
+
+function deleteItem(id){
+    return setCart(cart.filter(item => item.id !== id))
+}
+
+function getItemPrice() {
+    return cart.reduce((acc, item) => acc += item.price * item.count, 0)
+}
+
+function totalPrice() {
+    return cart.reduce((prev, act) => prev + act.count * act.price, 0)
 }
 
     return (
-        <cartCtx.Provider value={{ cart, addItem, getTotalItemsInCart, isInCart}}>
+        <cartCtx.Provider value={{ cart, addItem, getTotalItemsInCart, isInCart, emptyCart, deleteItem, getItemPrice, totalPrice}}>
             {children}
         </cartCtx.Provider>
     )
