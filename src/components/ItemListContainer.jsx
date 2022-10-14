@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import getItems, { getItemsByCategory } from './mockAPI';
+import  { getItems, getItemsByCategory } from './firestore';
 import ItemList from './ItemList';
 import { useParams } from "react-router-dom";
 
@@ -8,16 +8,15 @@ function ItemListContainer(props) {
   let [data, setData] = useState([]);
   
   const { cat } = useParams();
-  console.log(cat);
 useEffect( 
   () => { 
-   if(cat === undefined){ 
+  if(cat === undefined){ 
   getItems(cat).then((respuestaDatos) => setData (respuestaDatos));
-   }
-   else{
+  }
+  else{
     getItemsByCategory(cat).then((respuestaDatos) => 
       setData (respuestaDatos));
-   }
+  } 
   },[cat]);
 
 

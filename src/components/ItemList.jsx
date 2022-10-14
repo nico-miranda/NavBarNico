@@ -1,10 +1,10 @@
 import React from 'react'
 import Card from './Card'
 
-function ItemList(props) {
+function ItemList({item, data}) {
   return (
     <div className='card-container'>
-    {props.data.map( (item) => {
+    {data.map( (item) => {
       
         return ( 
         <Card 

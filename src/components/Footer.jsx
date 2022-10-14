@@ -3,7 +3,7 @@ import { FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa"
 import "../styles/footer.css";
 
 function Footer() {
-  return (
+return (
     <>
     <footer>
     <h1 className='footer-title'>Contactanos</h1>
@@ -20,7 +20,7 @@ function Footer() {
 </div>
 </footer>
 </>
-  )
+)
 }
 
 export default Footer;
