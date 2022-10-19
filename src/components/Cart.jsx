@@ -10,8 +10,8 @@ function Cart() {
     if (cart.length === 0) {
         return(
             <>
-            <p>No hay elementos en el carrito</p>'
-            <Link className='btnCart' to="/home">Hacer Compras</Link>
+            <p className='text'>No hay elementos en el carrito</p>'
+            <Link className='btnCart itemCart' to="/home">Hacer Compras</Link>
             </>
         );
     }
@@ -21,9 +21,9 @@ function Cart() {
             {
                 cart.map(item => <ItemCart key={item.id} product={item} />)
             }
-            <p>
-                Total: {totalPrice()}
-            </p>
+            <h3 className='itemCart, text'>
+                Total: ${totalPrice()}
+            </h3>
         </div>
     )
 }

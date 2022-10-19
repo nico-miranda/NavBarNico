@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc, setDoc } from "firebase/firestore";
 
 
 // Your web app's Firebase configuration
@@ -20,9 +20,9 @@ const firestore = getFirestore(app);
 
 export async function getItems(){
     const miCollection = collection( firestore, "sanitario");
-    let snapShotDB = await getDocs(miCollection)
+    let respuesta = await getDocs(miCollection)
     
-    let dataDocs = snapShotDB.docs.map((  documento ) => {
+    let dataDocs = respuesta.docs.map((  documento ) => {
         let docFormateado = { ...documento.data(), id: documento.id};
             return docFormateado;
     });
@@ -40,13 +40,20 @@ export async function getItemsByCategory(catParams){
     const miCollection = collection(firestore, "sanitario"); 
     const queryCategory = query(miCollection, where("category", "==", catParams));
 
-    const snapShotDB = await getDocs(queryCategory);
+    const respuesta = await getDocs(queryCategory);
 
-    let dataDocs = snapShotDB.docs.map((  documento ) => {
+    let dataDocs = respuesta.docs.map((  documento ) => {
         let docFormateado = { ...documento.data(), id: documento.id};
             return docFormateado;
     });
     return dataDocs;
+}
+
+export async function createBuyOrder(orderData){
+    const miCollection = collection(firestore, "orders");
+    let respuesta = await addDoc(miCollection, orderData);
+
+    return respuesta.id
 }
 
 export default firestore;

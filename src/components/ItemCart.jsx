@@ -2,10 +2,15 @@ import React, { useContext } from 'react';
 import '../styles/itemCart.css';
 import '../button/button.css';
 import { cartCtx } from '../context/cartContext';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import CheckoutForm from './CheckoutForm';
 
 function ItemCart({item}) {
+    
     const { cart, deleteItem, emptyCart } = useContext(cartCtx)
+    
+    
 
     if (cart.length > 0) {
         return (
@@ -22,13 +27,14 @@ function ItemCart({item}) {
                                     <h3>Unidades: {item.count}</h3>
                                 </div>
                                 <div>
-                                    <button onClick={() => deleteItem(item.id)} className='btn'>Delete</button>
+                                    <button onClick={() => deleteItem(item.id)} className='btn itemCart'>Delete</button>
                                 </div>
+                                <CheckoutForm/>
                             </div>
                         })
                     }
                     <div>
-                    <button onClick={() => emptyCart()} className='btn'>Vaciar Carrito</button>
+                    <button onClick={() => emptyCart()} className='btn itemCart '>Vaciar Carrito</button>
                     </div>
                 </div>
         )
