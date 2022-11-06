@@ -7,7 +7,7 @@ import { createBuyOrder } from './firestore';
 function CheckoutForm() {
 
     const navigate = useNavigate()
-    const { cart, totalPrice } = useContext(cartCtx)
+    const { cart, totalPrice, emptyCart } = useContext(cartCtx)
 
     function handleCheckout(event){   
         event.preventDefault();
@@ -19,6 +19,7 @@ function CheckoutForm() {
         };
         createBuyOrder(orderData).then( (orderid)=>{
             navigate(`/checkout/${orderid}`);
+            emptyCart();
         });
     }
 
